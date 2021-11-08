@@ -1,0 +1,16 @@
+Reunión del 8 noviembre del 2021
+
+proponemos una reunión los viernes para inicio de sprint. 
+otras dos reuniones por ahi los lunes (6pm) y miercoles (6pm), para conocer avance al medio y al final del sprint.
+
+Scrum Master: Juan Rueda.
+
+Haremos bien robuta la app de FutbolTinder (al que se le cambiará el nombre)
+opción 1: FutDate
+opción 2: FutFriends
+opción 3: Ball...
+opción 4: FutMatch
+opción 5: MatchMatch !
+opción 6: Match
+
+ESCOGIDA OPCIÓN 4 ! ____---_____FUTMATCH_____----____ 
