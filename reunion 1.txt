@@ -1,0 +1,24 @@
+Reunión del 5 noviembre del 2021
+
+proponemos una reunión los viernes para inicio de sprint. 
+otras dos reuniones por ahi los lunes y miercoles, para conocer avance al medio y al final del sprint.
+(quedan horarios por definir según disponibilidad)
+
+Usaremos slack para comunicarnos.
+Usaremos github como repositorio remoto.
+
+Queda por definir el Scrum Master (Daniel no, Juan depronto, Lina depronto, falta Angélica y Samuel por definir)
+
+Haremos bien robuta la app de FutbolTinder (al que se le cambiará el nombre)
+opción 1: FutDate
+opción 2: 
+opción 3:
+
+Correos y nombre de los integrantes:
+
+Juan Rueda Gonzalez : juancruedagonzalez@gmail.com
+Daniel Alejandro Rojas Toro : darojast@unal.edu.co
+Lina Paola Soler Franco : lipasofra.ph@gmail.com
+Angélica
+Samuel
+
