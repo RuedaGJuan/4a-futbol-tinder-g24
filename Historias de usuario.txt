@@ -1,0 +1,24 @@
+
+1. Como jugador de futbol quiero tener acceso a una aplicación donde pueda encontrar gente para organizar partidos de futbol en mi zona cercana.
+
+Descripción: Desarrollar un login para que los usuarios se puedan registrar en la aplicación
+
+2. Como usuario quiero crear mi perfil de jugador para poder ingresar en la aplicación.
+
+Descripción: Desarrollar el Signup
+
+3. Como jugador quiero poder ver las convocatorias existentes para poder unirme a un partido para jugar.
+
+Descripción: Desarrollar una petición que traiga las convocatorias creadas para que el usuario las pueda ver. Y poder entrar a una para escoger a cual quiere pertenecer, una a la vez.
+
+4. Como jugador quiero poder crear convocatorias de partidos para que otros jugadores se unan.
+
+Descripción: Desarrollar la capacidad de que un jugador cree una convocatoria a la vez.
+
+5. Como usuario de la aplicación quiero poder ver alguna información de los jugadores de la convocatoria para sentir confianza de los usuarios con quienes jugaré.
+
+Descripción: Que los perfiles sean públicos y puedan verse la cantidad de convocatorias jugadas.
+
+6. Como jugador quiero poder filtrar las convocatorias existentes (localidad, fecha o posición solicitada) para facilidad al escoger una.
+
+Descripción: Desarrollar filtro en convocatorias.
