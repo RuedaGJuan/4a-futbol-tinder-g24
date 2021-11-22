@@ -1,4 +1,4 @@
-package com.FutMatch.jugadorMS;
+package com.FutMatch.jugador_ms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
