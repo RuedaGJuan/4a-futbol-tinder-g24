@@ -8,10 +8,9 @@ public class Jugador {
     private String nombre;
     private Date fechaNacimiento;
     private Integer convJugadas;
-    private Integer id;
 
-    public Jugador(Integer id, String nombre, Date fechaNacimiento, Integer convJugadas){
-        this.id = id;
+
+    public Jugador(String nombre, Date fechaNacimiento, Integer convJugadas){
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
         this.convJugadas = convJugadas;
@@ -41,8 +40,6 @@ public class Jugador {
         this.convJugadas = convJugadas;
     }
 
-    public Integer getId() {
-        return id;
-    }
+
 
 }
