@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import java.util.Date;
 
 public class Jugador {
+
     @Id
     private String nombre;
     private Date fechaNacimiento;
