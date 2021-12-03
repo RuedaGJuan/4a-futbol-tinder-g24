@@ -3,7 +3,7 @@ const convocatoriaResolver = {
         convocatoriaById: async (_, { username }, { dataSources, userIdToken }) => {
             usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
             if (username == usernameToken)
-                return dataSources.accountAPI.convocatoriaById(username)
+                return dataSources.convocatoriaAPI.convocatoriaById(id)
             else
                 return null
 

@@ -10,12 +10,11 @@ const usersResolver = {
     },
     Mutation: {
         signUpUser: async (_, { userInput }, { dataSources }) => {
-            const accountInput = {
-                username: userInput.username,
-                balance: userInput.balance,
-                lastChange: (new Date()).toISOString()
+            const jugadorInput = {
+                nombre: userInput.name,
+                fechaNacimiento: userInput.fechaNacimiento 
             }
-            await dataSources.accountAPI.createAccount(accountInput);
+            await dataSources.jugadorAPI.createJugador(jugadorInput);
             const authInput = {
                 username: userInput.username,
                 password: userInput.password,

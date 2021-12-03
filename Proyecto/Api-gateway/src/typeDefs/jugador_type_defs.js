@@ -3,7 +3,7 @@ const jugadorTypeDefs = gql `
     type Jugador {
         nombre: String!
         fechaNacimiento: String!
-        convJugadas: Int!
+        convJugadas: Int
     }
     extend type Query {
         jugadorByNombre(nombre: String!): Jugador

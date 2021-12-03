@@ -1,5 +1,6 @@
 const { RESTDataSource } = require('apollo-datasource-rest');
 const serverConfig = require('../server');
+
 class JugadorAPI extends RESTDataSource {
     constructor() {
         super();

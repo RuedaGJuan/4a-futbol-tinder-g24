@@ -17,7 +17,7 @@ const authTypeDefs = gql`
         password: String!
         name: String!
         email: String!
-        balance: Int!
+        fechaNacimiento: String!   
     }
     type UserDetail {
         id: Int!
