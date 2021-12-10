@@ -7,7 +7,7 @@ const convocatoriaTypeDefs = gql `
         fecha: String!
         hora: String!
         localidad : String!
-        posiciones: String
+        
     }
     input ConvocatoriaInput {
         jugEquip1: [Int]
@@ -15,13 +15,14 @@ const convocatoriaTypeDefs = gql `
         fecha: String!
         hora: String!
         localidad : String!
-        posiciones: String
+      
     }
     extend type Query {
-        convocatoriaById(id: String!): Convocatoria
+        convocatoriaByLocalidad(localidad: String!): Convocatoria!
+        convocatoriaByFecha(fecha: String!): Convocatoria!
     }
     extend type Mutation {
-        createConvocatoria(convocatoria: ConvocatoriaInput!): Convocatoria
+        createConvocatoria(convocatoria: ConvocatoriaInput!): Convocatoria!
     }
 `;
 module.exports = convocatoriaTypeDefs;

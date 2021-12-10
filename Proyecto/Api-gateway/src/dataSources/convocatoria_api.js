@@ -10,8 +10,11 @@ class ConvocatoriaAPI extends RESTDataSource {
         convocatoria = new Object(JSON.parse(JSON.stringify(convocatoria)));
         return await this.post('/convocatorias', convocatoria);
     }
-    async convocatoriaById(id) {
-        return await this.get(`/convocatorias/${id}`);
+    async convocatoriaByLocalidad(localidad) {
+        return await this.get(`/convocatorias/${localidad}`);
+    }
+    async convocatoriaByFecha(fecha) {
+        return await this.get(`/convocatorias/${fecha}`);
     }
 }
 module.exports = ConvocatoriaAPI;

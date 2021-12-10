@@ -14,14 +14,21 @@ public class ConvocatoriaController {
         this.convocatoriaRepository = convocatoriaRepository;
     }
 
-    @GetMapping("/convocatorias/{id}")
-    Convocatoria getConvocatoria(@PathVariable String id){
-        return convocatoriaRepository.findById(id)
-                .orElseThrow(() -> new ConvocatoriaNotFoundException("No se encontro ninguna convocatoria con el id" + id));
+    @GetMapping("/convocatoriasLocalidad/{localidad}")
+    Convocatoria convocatoriaByLocalidad(@PathVariable String localidad){
+        return convocatoriaRepository.findById(localidad)
+                .orElseThrow(() -> new ConvocatoriaNotFoundException("No se encontró ninguna convocatoria en la localidad" + localidad));
+    }
+
+    @GetMapping("/convocatoriasFecha/{fecha}")
+    Convocatoria convocatoriaByFecha(@PathVariable String fecha){
+        return convocatoriaRepository.findByFecha(fecha);
     }
 
     @PostMapping("/convocatorias")
     Convocatoria newConvocatoria(@RequestBody Convocatoria convocatoria){
         return convocatoriaRepository.save(convocatoria);
     }
+
+
 }

@@ -14,16 +14,16 @@ public class Convocatoria{
     private LocalDate fecha;
     private LocalTime hora;
     private String localidad;
-    private ArrayList<String> posiciones;
 
-    public Convocatoria(String id, ArrayList<String> jugEquip1, ArrayList<String> jugEquip2, LocalDate fecha, LocalTime hora, String localidad, ArrayList<String> posiciones) {
+
+    public Convocatoria(String id, ArrayList<String> jugEquip1, ArrayList<String> jugEquip2, LocalDate fecha, LocalTime hora, String localidad) {
         this.id = id;
         this.jugEquip1 = jugEquip1;
         this.jugEquip2 = jugEquip2;
         this.fecha = fecha;
         this.hora = hora;
         this.localidad = localidad;
-        this.posiciones = posiciones;
+
     }
 
     public String getId() {
@@ -50,9 +50,7 @@ public class Convocatoria{
         return localidad;
     }
 
-    public ArrayList<String> getPosiciones() {
-        return posiciones;
-    }
+
 
     public void setJugEquip1(ArrayList<String> jugEquip1) {
         this.jugEquip1 = jugEquip1;
@@ -74,7 +72,5 @@ public class Convocatoria{
         this.localidad = localidad;
     }
 
-    public void setPosiciones(ArrayList<String> posiciones) {
-        this.posiciones = posiciones;
-    }
+
 }
