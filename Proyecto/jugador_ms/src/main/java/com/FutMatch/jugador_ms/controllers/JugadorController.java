@@ -14,14 +14,16 @@ public class JugadorController {
         this.jugadorRepository = jugadorRepository;
     }
 
-    @GetMapping("/jugador/{id}")
-    Jugador getJugador(@PathVariable String id){
-        return jugadorRepository.findById(id)
-                .orElseThrow(() -> new JugadorNotFoundException("No se encontró un jugador con el id: " + id));
+    @GetMapping("/jugador/{nombre}")
+    Jugador getJugador(@PathVariable String nombre){
+        return jugadorRepository.findById(nombre)
+                .orElseThrow(() -> new JugadorNotFoundException("No se encontró un jugador con el nombre: " + nombre));
     }
 
     @PostMapping("/jugador")
     Jugador newJugador(@RequestBody Jugador jugador){
         return jugadorRepository.save(jugador);
     }
+
+
 }

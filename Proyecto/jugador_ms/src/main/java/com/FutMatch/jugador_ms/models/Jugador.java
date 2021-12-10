@@ -1,19 +1,18 @@
 package com.FutMatch.jugador_ms.models;
 
 import org.springframework.data.annotation.Id;
-import java.util.Date;
 
 public class Jugador {
 
     @Id
     private String nombre;
-    private Date fechaNacimiento;
+    private Integer edad;
     private Integer convJugadas;
 
 
-    public Jugador(String nombre, Date fechaNacimiento, Integer convJugadas){
+    public Jugador(String nombre, Integer edad, Integer convJugadas){
         this.nombre = nombre;
-        this.fechaNacimiento = fechaNacimiento;
+        this.edad = edad;
         this.convJugadas = convJugadas;
     }
 
@@ -25,12 +24,12 @@ public class Jugador {
         this.nombre = nombre;
     }
 
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
+    public Integer getEdad() {
+        return edad;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setEdad(Integer edad) {
+        this.edad = edad;
     }
 
     public Integer getConvJugadas() {
@@ -40,7 +39,4 @@ public class Jugador {
     public void setConvJugadas(Integer convJugadas) {
         this.convJugadas = convJugadas;
     }
-
-
-
 }
