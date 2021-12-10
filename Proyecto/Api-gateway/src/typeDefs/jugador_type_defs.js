@@ -1,4 +1,5 @@
 const { gql } = require('apollo-server');
+
 const jugadorTypeDefs = gql `
     type Jugador {
         nombre: String!
@@ -6,7 +7,7 @@ const jugadorTypeDefs = gql `
         convJugadas: Int
     }
     extend type Query {
-        jugadorByNombre(nombre: String!): Jugador
+        jugadorByNombre(username: String!): Jugador!
     }
 `;
 module.exports = jugadorTypeDefs;

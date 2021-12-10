@@ -17,7 +17,7 @@ const authTypeDefs = gql`
         password: String!
         name: String!
         email: String!
-        fechaNacimiento: String!   
+        fechaNacimiento: String   
     }
     type UserDetail {
         id: Int!
@@ -33,6 +33,6 @@ const authTypeDefs = gql`
         }
     type Query {
         userDetailById(userId: Int!): UserDetail!
-    }
+       }
 `;
 module.exports = authTypeDefs;

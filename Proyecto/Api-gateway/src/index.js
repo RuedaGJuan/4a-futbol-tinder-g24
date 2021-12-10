@@ -5,6 +5,7 @@ const JugadorAPI = require('./dataSources/jugador_api');
 const ConvocatoriaAPI = require('./dataSources/convocatoria_api');
 const AuthAPI = require('./dataSources/auth_api');
 const authentication = require('./utils/authentication');
+
 const server = new ApolloServer({
     context: authentication,
     typeDefs,
