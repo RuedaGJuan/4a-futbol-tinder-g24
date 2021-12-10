@@ -1,9 +1,9 @@
 const jugadorResolver = {
     Query: {
-        jugadorByNombre: async (_, { username }, { dataSources, userIdToken }) => {
-            usernameToken = (await dataSources.authAPI.getUser(userIdToken)).username
-            if (username == usernameToken)
-                return await dataSources.jugadorAPI.jugadorByNombre(username)
+        jugadorByNombre: async (_, { nombre }, { dataSources, userIdToken }) => {
+            nameToken = (await dataSources.authAPI.getUser(userIdToken)).name
+            if (nombre == nameToken)
+                return await dataSources.jugadorAPI.jugadorByNombre(nombre)
             else
                 return null
 

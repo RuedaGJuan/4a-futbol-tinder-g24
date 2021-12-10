@@ -10,8 +10,8 @@ class JugadorAPI extends RESTDataSource {
         jugador = new Object(JSON.parse(JSON.stringify(jugador)));
         return await this.post('/jugador', jugador);
     }
-    async jugadorByNombre(username) {
-        return await this.get(`/jugador/${username}/`);
+    async jugadorByNombre(nombre) {
+        return await this.get(`/jugador/${nombre}/`);
     }
 }
 module.exports = JugadorAPI;

@@ -12,7 +12,7 @@ const usersResolver = {
         signUpUser: async (_, { userInput }, { dataSources }) => {
             const jugadorInput = {
                 nombre: userInput.name,
-                fechaNacimiento: userInput.fechaNacimiento 
+                edad: userInput.edad 
             }
             await dataSources.jugadorAPI.createJugador(jugadorInput);
             const authInput = {
