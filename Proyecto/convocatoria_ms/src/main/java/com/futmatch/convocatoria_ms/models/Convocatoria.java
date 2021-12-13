@@ -9,14 +9,15 @@ import java.util.ArrayList;
 public class Convocatoria{
     @Id
     private String id;
-    private ArrayList<String> jugEquip1;
-    private ArrayList<String> jugEquip2;
-    private LocalDate fecha;
-    private LocalTime hora;
+    private ArrayList<Integer> jugEquip1;
+    private ArrayList<Integer> jugEquip2;
+    private String fecha;
+    private String hora;
     private String localidad;
 
 
-    public Convocatoria(String id, ArrayList<String> jugEquip1, ArrayList<String> jugEquip2, LocalDate fecha, LocalTime hora, String localidad) {
+    public Convocatoria(String id, ArrayList<Integer> jugEquip1, ArrayList<Integer> jugEquip2, String fecha,
+                        String hora, String localidad) {
         this.id = id;
         this.jugEquip1 = jugEquip1;
         this.jugEquip2 = jugEquip2;
@@ -26,51 +27,48 @@ public class Convocatoria{
 
     }
 
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
     public String getId() {
         return id;
     }
 
-    public ArrayList<String> getJugEquip1() {
+    public ArrayList<Integer> getJugEquip1() {
         return jugEquip1;
     }
 
-    public ArrayList<String> getJugEquip2() {
+    public void setJugEquip1(ArrayList<Integer> jugEquip1) {
+        this.jugEquip1 = jugEquip1;
+    }
+
+    public ArrayList<Integer> getJugEquip2() {
         return jugEquip2;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public void setJugEquip2(ArrayList<Integer> jugEquip2) {
+        this.jugEquip2 = jugEquip2;
     }
 
-    public LocalTime getHora() {
-        return hora;
-    }
 
     public String getLocalidad() {
         return localidad;
     }
 
-
-
-    public void setJugEquip1(ArrayList<String> jugEquip1) {
-        this.jugEquip1 = jugEquip1;
-    }
-
-    public void setJugEquip2(ArrayList<String> jugEquip2) {
-        this.jugEquip2 = jugEquip2;
-    }
-
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
-    }
-
-    public void setHora(LocalTime hora) {
-        this.hora = hora;
-    }
-
     public void setLocalidad(String localidad) {
         this.localidad = localidad;
     }
-
-
 }

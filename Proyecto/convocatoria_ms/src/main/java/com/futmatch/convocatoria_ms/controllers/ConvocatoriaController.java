@@ -1,9 +1,11 @@
 package com.futmatch.convocatoria_ms.controllers;
 
-import com.futmatch.convocatoria_ms.exceptions.ConvocatoriaNotFoundException;
 import com.futmatch.convocatoria_ms.models.Convocatoria;
 import com.futmatch.convocatoria_ms.repositories.ConvocatoriaRepository;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+import java.util.List;
 
 @RestController /*para que esa clase sea un controlador rest, crear vistas para rtas de http*/
 public class ConvocatoriaController {
@@ -14,18 +16,22 @@ public class ConvocatoriaController {
         this.convocatoriaRepository = convocatoriaRepository;
     }
 
-    @GetMapping("/convocatoriasLocalidad/{localidad}")
-    Convocatoria convocatoriaByLocalidad(@PathVariable String localidad){
-        return convocatoriaRepository.findById(localidad)
-                .orElseThrow(() -> new ConvocatoriaNotFoundException("No se encontró ninguna convocatoria en la localidad" + localidad));
+    @GetMapping("/convocatoriaslocalidad/{localidad}")
+    List<Convocatoria> convocatoriaByLocalidad(@PathVariable String localidad){
+        return convocatoriaRepository.findByLocalidad(localidad);
     }
 
-    @GetMapping("/convocatoriasFecha/{fecha}")
-    Convocatoria convocatoriaByFecha(@PathVariable String fecha){
+    @GetMapping("/convocatoriasfecha/{fecha}")
+    List<Convocatoria> convocatoriaByFecha(@PathVariable String fecha){
         return convocatoriaRepository.findByFecha(fecha);
     }
 
-    @PostMapping("/convocatorias")
+    @GetMapping("/convocatorias")
+    List<Convocatoria> convocatoriasLista(){
+        return convocatoriaRepository.findAll();
+    }
+
+    @PostMapping("/convocatoria")
     Convocatoria newConvocatoria(@RequestBody Convocatoria convocatoria){
         return convocatoriaRepository.save(convocatoria);
     }

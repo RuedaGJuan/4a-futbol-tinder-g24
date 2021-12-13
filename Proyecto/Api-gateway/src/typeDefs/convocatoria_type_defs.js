@@ -18,8 +18,9 @@ const convocatoriaTypeDefs = gql `
       
     }
     extend type Query {
-        convocatoriaByLocalidad(localidad: String!): Convocatoria!
-        convocatoriaByFecha(fecha: String!): Convocatoria!
+        convocatoriaByLocalidad(localidad: String!): [Convocatoria]!
+        convocatoriaByFecha(fecha: String!): [Convocatoria]!
+        convocatoriaTodas(fecha: String): [Convocatoria]!
     }
     extend type Mutation {
         createConvocatoria(convocatoria: ConvocatoriaInput!): Convocatoria!
