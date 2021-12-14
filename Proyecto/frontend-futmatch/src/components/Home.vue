@@ -1,6 +1,6 @@
 <template>
   <html>
-    <BasicLayouts>
+    
       <div class="texto">
         <h2>HAZ PARTE</h2>
         <h1>DEL JUEGO</h1>
@@ -17,20 +17,18 @@
           CREATE ACCOUNT
         </button>
       </div>
-      <footer class="footer">
-        <p>Todos los derechos reservados Grupo FutMatch P24 C4. 2021</p>
-      </footer>
-    </BasicLayouts>
+      
+    
   </html>
 </template>
 
 <script>
-import BasicLayouts from "../layouts/BasicLayouts.vue";
+
 
 export default {
   name: "Home",
   components: {
-    BasicLayouts,
+    
   },
 };
 </script>

@@ -3,34 +3,37 @@
   <div id="app" class="app">
 
     
+    <div class="ui secondary menu">
       <div class="ui container">
 
-        <div class="left menu">
-          <router-link class="item" to="/user/home">
-            <img  class="ui small image"  src="./assets/FUT_logo.png" alt="Ecommerce"/>
-          </router-link>
-          <router-link class="item" to="/user/home">
-            <h1>FUTMATCH</h1>
-          </router-link>
-        </div>
+          <div class="left menu">
+            <router-link class="item" to="/user/home">
+              <img class="ui small image" src="./assets/FUT_logo.png" alt="Ecommerce" />
+            </router-link>
+            
+          </div>
 
-        <div class="right menu">
-          <button v-if="!is_auth" v-on:click="loadHome"> Inicio </button>
-          <button v-if="!is_auth" v-on:click="loadLogIn" > Iniciar Sesión </button>
-          <button v-if="is_auth" v-on:click="logOut"> Cerrar Sesión </button>
-        </div>
+          <div class="right menu">
+            <button v-if="!is_auth" v-on:click="loadHome"> HOME </button>
+            <button v-if="!is_auth" v-on:click="loadLogIn">LOGIN</button>
+            <button v-if="is_auth" v-on:click="logOut">CERRAR SESIÓN</button>
+          </div>
 
       </div>
-      
+    </div>
+  
+    <div class="main-component">
+      <router-view  
+        v-on:completedLogIn="completedLogIn"
+        v-on:logOut="logOut"
+        v-on:loadhome="loadHome"
+      >
+      </router-view>
+    </div>
 
-      <div class="main-component">
-        <router-view  
-          v-on:completedLogIn="completedLogIn"
-          v-on:logOut="logOut"
-          v-on:loadhome="loadHome"
-        >
-        </router-view>
-      </div>
+    <footer class="footer">
+        <p>Todos los derechos reservados Grupo FutMatch P24 C4. 2021</p>
+      </footer>
 
   </div>
 
@@ -90,8 +93,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+body{
+    margin: 0 0 0 0;
+  }
+
 .ui.menu.secondary {
   background-color: #0005088e;
+  }
 
   .item {
     color: #ffffff;
@@ -114,6 +123,22 @@ export default {
         cursor: pointer;
       }
     }
+  
   }
+
+.main-component{
+    height: 75vh;
+    margin: 0%;
+    padding: 0%;
+
+    background: #FDFEFE ;
+  }
+
+  .footer {
+  text-align: right;
+  font-weight: lighter;
+  margin-top: 62px;
+  margin-bottom: 60px;
+  color: white;
 }
 </style>

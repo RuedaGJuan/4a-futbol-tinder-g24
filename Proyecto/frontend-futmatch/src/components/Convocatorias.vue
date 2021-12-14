@@ -1,58 +1,26 @@
 <template>
   <body>
-    <BasicLayouts>
+    
       <div class="ver-convocatorias">
         <h2>CONVOCATORIAS VIGENTES</h2>
         <div class="ui grey inverted segment">
-          <div class="ui inverted relaxed divided animated list">
-            <div class="item">
+          <ul class="ui inverted relaxed divided animated list">
+            <li class="item" v-for="convocatoria of convocatoriaTodas" :key="convocatoria.id">
               <div class="right floated content">
                 <div class="ui green button">Unirme</div>
               </div>
               <div class="content">
-                <div class="header">Snickerdoodle</div>
-                An excellent companion
+                <ul class="header">
+                  <li>{{convocatoria.fecha}}</li>
+                  <li>{{convocatoria.hora}}</li>
+                  <li>{{convocatoria.localidad}}</li>
+                </ul>
               </div>
-            </div>
-            <div class="item">
-              <div class="right floated content">
-                <div class="ui green button">Unirme</div>
-              </div>
-              <div class="content">
-                <div class="header">Poodle</div>
-                A poodle, its pretty basic
-              </div>
-            </div>
-            <div class="item">
-              <div class="right floated content">
-                <div class="ui green button">Unirme</div>
-              </div>
-              <div class="content">
-                <div class="header">Paulo</div>
-                He's also a dog
-              </div>
-            </div>
-            <div class="item">
-              <div class="right floated content">
-                <div class="ui green button">Unirme</div>
-              </div>
-              <div class="content">
-                <div class="header">Paulo</div>
-                He's also a dog
-              </div>
-            </div>
-            <div class="item">
-              <div class="right floated content">
-                <div class="ui green button">Unirme</div>
-              </div>
-              <div class="content">
-                <div class="header">Paulo</div>
-                He's also a dog
-              </div>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </div>
+
       <div class="crear-convocatorias">
         <h2>CREAR CONVOCATORIA</h2>
         <form class="ui form" v-om:submit.prevent="processConvocatoria">
@@ -86,20 +54,18 @@
           </button>
         </form>
       </div>
-      <footer class="footer">
-        <p>Todos los derechos reservados Grupo FutMatch P24 C4. 2021</p>
-      </footer>
-    </BasicLayouts>
+     
+    
   </body>
 </template>
 
 <script>
 import gql from "graphql-tag";
-import BasicLayouts from "../layouts/BasicLayouts.vue";
+
 
 export default {
   name: "Convocatorias",
-  BasicLayouts,
+  
 
   data: function () {
     return {
@@ -169,6 +135,28 @@ export default {
         });
     },
   },
+
+apollo: {
+    convocatoriaTodas: {
+      query: gql`
+        query ($fecha: String!) {
+          convocatoriaTodas(fecha: $fecha) {
+            id
+            fecha
+            hora
+            localidad
+          }
+        }
+      `,
+      variables() {
+        return {
+          
+        };
+      },
+    },
+  }
+
+
 };
 </script>
 

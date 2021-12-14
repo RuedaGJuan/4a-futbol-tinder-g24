@@ -1,6 +1,6 @@
 <template>
   <html>
-    <BasicLayouts>
+    
       <div class="login">
         <h2>INICIA SESIÓN</h2>
         <form class="ui form" v-on:submit.prevent="processLogInUser">
@@ -20,21 +20,19 @@
           </button>
         </form>
       </div>
-      <footer class="footer">
-        <p>Todos los derechos reservados Grupo FutMatch P24 C4. 2021</p>
-      </footer>
-    </BasicLayouts>
+      
+    
   </html>
 </template>
 
 <script>
-import BasicLayouts from "../layouts/BasicLayouts.vue";
+
 import gql from "graphql-tag";
 
 export default {
   name: "LogIn",
   components: {
-    BasicLayouts,
+    
   },
   data: function () {
     return {
