@@ -5,10 +5,7 @@
         <h2>HAZ PARTE</h2>
         <h1>DEL JUEGO</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi
-          provident saepe magnam sapiente dolorem id corrupti harum nam, aliquid
-          aut repellendus suscipit ipsa, quae rerum illo nihil? Autem, veniam
-          illo.
+          Únete a la comunidad más grande de jugadores aficionados!
         </p>
         <button class="ui green button" @click="$router.push('/user/login')">
           LOGIN
@@ -28,7 +25,7 @@
 export default {
   name: "Home",
   components: {
-    
+   
   },
 };
 </script>

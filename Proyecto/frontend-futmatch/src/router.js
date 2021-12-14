@@ -40,7 +40,7 @@ const router = createRouter({
 });
 
 const apolloClient = new ApolloClient({
-  link: createHttpLink({ uri: 'https://futmatch-apigateway.herokuapp.com/' }),
+  link: createHttpLink({ uri: 'https://futmatch-apigateway.herokuapp.com' }),
   cache: new InMemoryCache()
 })
 

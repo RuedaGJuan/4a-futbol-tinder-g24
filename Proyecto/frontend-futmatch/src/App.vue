@@ -16,7 +16,7 @@
           <div class="right menu">
             <button v-if="!is_auth" v-on:click="loadHome"> HOME </button>
             <button v-if="!is_auth" v-on:click="loadLogIn">LOGIN</button>
-            <button v-if="is_auth" v-on:click="logOut">CERRAR SESIÓN</button>
+            <button v-if="is_auth" v-on:click="logOut">LOGOUT</button>
           </div>
 
       </div>
@@ -25,8 +25,9 @@
     <div class="main-component">
       <router-view  
         v-on:completedLogIn="completedLogIn"
+        v-on:completedSignUp="completedSignUp"
         v-on:logOut="logOut"
-        v-on:loadhome="loadHome"
+        v-on:loadHome="loadHome"
       >
       </router-view>
     </div>

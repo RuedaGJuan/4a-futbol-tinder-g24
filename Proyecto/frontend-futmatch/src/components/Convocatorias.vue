@@ -1,8 +1,9 @@
 <template>
   <body>
     
-      <div class="ver-convocatorias">
+      <div class="ver-convocatorias" >
         <h2>CONVOCATORIAS VIGENTES</h2>
+        <button class="cargarconvocatorias" v-on:submit.prevent="convocatoriaTodas">CARGAR</button>
         <div class="ui grey inverted segment">
           <ul class="ui inverted relaxed divided animated list">
             <li class="item" v-for="convocatoria of convocatoriaTodas" :key="convocatoria.id">
@@ -154,9 +155,11 @@ apollo: {
         };
       },
     },
+  },
+
+  created: function () {
+    this.$apollo.queries.convocatoriaTodas.refetch();
   }
-
-
 };
 </script>
 
