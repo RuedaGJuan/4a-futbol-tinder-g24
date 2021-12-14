@@ -5,35 +5,24 @@
         <h2>CREA TU PERFIL</h2>
         <form class="ui form" v-on:submit.prevent="processSignUp">
           <div class="field">
-            <input type="text" v-model="user.username" placeholder="Usuario" />
+            <input type="text" v-model="user.username" placeholder="Usuario">
           </div>
           <div class="field">
             <input
-              type="password"
-              v-model="user.password"
-              placeholder="Contraseña"
-            />
+              type="password" v-model="user.password" placeholder="Contraseña">
           </div>
           <div class="field">
-            <input type="text" v-model="user.name" placeholder="Nombre" />
+            <input type="text" v-model="user.name" placeholder="Nombre">
           </div>
           <div class="field">
-            <input
-              type="email"
-              v-model="user.email"
-              placeholder="Correo electrónico"
-            />
+            <input 
+              type="email" v-model="user.email" placeholder="Correo electrónico">
           </div>
           <div class="field">
-            <input type="text" v-model="user.age" placeholder="Edad" />
+            <input type="text" v-model="user.age" placeholder="Edad">
           </div>
           <button
-            class="ui button fluid grey"
-            type="submit"
-            :class="{ loading }"
-          >
-            CREAR USUARIO
-          </button>
+            class="ui button fluid grey" type="submit" :class="{ loading }">CREAR USUARIO</button>
         </form>
       </div>
       <footer class="footer">
@@ -59,7 +48,7 @@ export default {
         password: "",
         name: "",
         email: "",
-        balance: 0,
+        age: "",
       },
     };
   },
@@ -103,8 +92,8 @@ body {
   background-color: black;
   background-image: url(../assets/register3.jpg);
   background-size: 100%;
-  height: 645px;
-  max-width: 1400px;
+  height: 100%;
+  max-width: 100%;
 }
 
 .register {

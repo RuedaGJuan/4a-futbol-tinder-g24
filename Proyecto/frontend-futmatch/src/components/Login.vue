@@ -5,21 +5,16 @@
         <h2>INICIA SESIÓN</h2>
         <form class="ui form" v-on:submit.prevent="processLogInUser">
           <div class="field">
-            <input type="text" v-model="user.username" placeholder="Usuario" />
+            <input type="text" v-model="user.username" placeholder="Usuario">
           </div>
 
           <div class="field">
             <input
-              type="password"
-              v-model="user.password"
-              placeholder="Contraseña"
-            />
+              type="password" v-model="user.password" placeholder="Contraseña">
           </div>
 
           <button
-            class="ui button fluid green"
-            type="submit"
-            :class="{ loading }"
+            class="ui button fluid green"  type="submit" :class="{ loading }"
           >
             ENTRAR
           </button>

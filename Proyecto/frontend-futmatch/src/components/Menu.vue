@@ -2,28 +2,31 @@
   <div class="ui secondary menu">
     <div class="ui container">
       <div class="left menu">
-        <router-link class="item" to="/">
+        <router-link class="item" to="/user/home">
           <img
             class="ui small image"
             src="../assets/FUT_logo.png"
             alt="Ecommerce"
           />
         </router-link>
-        <router-link class="item" to="/">
+        <router-link class="item" to="/user/home">
           <h1>FUTMATCH</h1>
         </router-link>
       </div>
       <div class="right menu">
-        <router-link class="item" to="/" v-if="!token"> HOME </router-link>
-        <router-link class="item" to="/login" v-if="!token">
+        <button class="button" @click="$router.push('/user/login')" v-if="!is_auth"> HOME </button>
+        <router-link class="item" to="/user/login" v-if="!is_auth">
           LOGIN
         </router-link>
-        <template v-if="token">
-          <router-link class="item" to="/orders">CERRAR SESIÓN</router-link>
-        </template>
+        
+          <router-link class="item" to="/user/home"  v-if="is_auth">CERRAR SESIÓN</router-link>
+        
       </div>
     </div>
   </div>
+
+  
+
 </template>
 
 <script>

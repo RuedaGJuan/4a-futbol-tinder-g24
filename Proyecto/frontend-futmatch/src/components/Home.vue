@@ -10,10 +10,10 @@
           aut repellendus suscipit ipsa, quae rerum illo nihil? Autem, veniam
           illo.
         </p>
-        <button class="ui green button" @click="$router.push('/login')">
+        <button class="ui green button" @click="$router.push('/user/login')">
           LOGIN
         </button>
-        <button class="ui grey button" @click="$router.push('/signup')">
+        <button class="ui grey button" @click="$router.push('/user/signup')">
           CREATE ACCOUNT
         </button>
       </div>

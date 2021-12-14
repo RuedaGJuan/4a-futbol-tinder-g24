@@ -2,7 +2,7 @@
   <body>
     <BasicLayouts>
       <div class="ver-convocatorias">
-        <h2>CONVOCATORIA VIGENTES</h2>
+        <h2>CONVOCATORIAS VIGENTES</h2>
         <div class="ui grey inverted segment">
           <div class="ui inverted relaxed divided animated list">
             <div class="item">
@@ -55,21 +55,27 @@
       </div>
       <div class="crear-convocatorias">
         <h2>CREAR CONVOCATORIA</h2>
-        <form class="ui form">
+        <form class="ui form" v-om:submit.prevent="processConvocatoria">
           <div class="field">
-            <input type="text" placeholder="ID jugadores Equipo 1" />
+            <input
+              type="text"
+              v-model="createConvocatoria.fecha"
+              placeholder="Fecha"
+            />
           </div>
           <div class="field">
-            <input type="text" placeholder="ID jugadores Equipo 1" />
+            <input
+              type="text"
+              v-model="createConvocatoria.hora"
+              placeholder="Hora"
+            />
           </div>
           <div class="field">
-            <input type="text" placeholder="Fecha" />
-          </div>
-          <div class="field">
-            <input type="text" placeholder="Hora" />
-          </div>
-          <div class="field">
-            <input type="text" placeholder="Localidad" />
+            <input
+              type="text"
+              v-model="createConvocatoria.localidad"
+              placeholder="Localidad"
+            />
           </div>
           <button
             class="ui button fluid grey"
@@ -88,11 +94,80 @@
 </template>
 
 <script>
+import gql from "graphql-tag";
 import BasicLayouts from "../layouts/BasicLayouts.vue";
+
 export default {
-  components: {
-    name: "Convocatorias",
-    BasicLayouts,
+  name: "Convocatorias",
+  BasicLayouts,
+
+  data: function () {
+    return {
+      createConvocatoria: {
+        fecha: "",
+        hora: "",
+        localidad: "",
+      },
+    };
+  },
+
+  methods: {
+    processConvocatoria: async function () {
+      if (
+        localStorage.getItem("token_access") === null ||
+        localStorage.getItem("token_refresh") === null
+      ) {
+        this.$emit("logOut");
+        return;
+      }
+      localStorage.setItem("token_access", "");
+
+      await this.$apollo
+        .mutate({
+          mutation: gql`
+            mutation ($refresh: String!) {
+              refreshToken(refresh: $refresh) {
+                access
+              }
+            }
+          `,
+          variables: {
+            refresh: localStorage.getItem("token_refresh"),
+          },
+        })
+        .then((result) => {
+          localStorage.setItem("token_access", result.data.refreshToken.access);
+        })
+        .catch((error) => {
+          this.$emit("logOut");
+          return;
+        });
+
+      await this.$apollo
+        .mutate({
+          mutation: gql`
+            mutation ($convocatoria: ConvocatoriaInput!) {
+              createConvocatoria(convocatoria: $convocatoria) {
+                id
+                jugEquip1
+                jugEquip2
+                fecha
+                hora
+                localidad
+              }
+            }
+          `,
+          variables: {
+            convocatoria: this.createConvocatoria,
+          },
+        })
+        .then((result) => {
+          alert("Convocatoria creada de manera Correcta");
+        })
+        .catch((error) => {
+          alert("Error al crear la convocatoria");
+        });
+    },
   },
 };
 </script>
