@@ -1,57 +1,47 @@
 <template>
   <body>
-    <BasicLayouts>
-      <div class="register">
-        <h2>CREA TU PERFIL</h2>
-        <form class="ui form" v-on:submit.prevent="processSignUp">
-          <div class="field">
-            <input type="text" v-model="user.username" placeholder="Usuario" />
-          </div>
-          <div class="field">
-            <input
-              type="password"
-              v-model="user.password"
-              placeholder="Contraseña"
-            />
-          </div>
-          <div class="field">
-            <input type="text" v-model="user.name" placeholder="Nombre" />
-          </div>
-          <div class="field">
-            <input
-              type="email"
-              v-model="user.email"
-              placeholder="Correo electrónico"
-            />
-          </div>
-          <div class="field">
-            <input type="text" v-model="user.age" placeholder="Edad" />
-          </div>
-          <button
-            class="ui button fluid grey"
-            type="submit"
-            :class="{ loading }"
-          >
-            CREAR USUARIO
-          </button>
-        </form>
-      </div>
-      <footer class="footer">
-        <p>Todos los derechos reservados Grupo FutMatch P24 C4. 2021</p>
-      </footer>
-    </BasicLayouts>
+    <div class="register">
+      <h2>CREA TU PERFIL</h2>
+      <form class="ui form" v-on:submit.prevent="processSignUp">
+        <div class="field">
+          <input type="text" v-model="user.username" placeholder="Usuario" />
+        </div>
+        <div class="field">
+          <input
+            type="password"
+            v-model="user.password"
+            placeholder="Contraseña"
+          />
+        </div>
+        <div class="field">
+          <input type="text" v-model="user.name" placeholder="Nombre" />
+        </div>
+        <div class="field">
+          <input
+            type="email"
+            v-model="user.email"
+            placeholder="Correo electrónico"
+          />
+        </div>
+        <div class="field">
+          <input type="number" v-model="user.edad" placeholder="Edad" />
+        </div>
+        <button class="ui button fluid grey" type="submit">
+          CREAR USUARIO
+        </button>
+      </form>
+    </div>
+    <footer class="footer">
+      <p>Todos los derechos reservados Grupo FutMatch P24 C4. 2021</p>
+    </footer>
   </body>
 </template>
 
 <script>
-import BasicLayouts from "../layouts/BasicLayouts.vue";
 import gql from "graphql-tag";
-
 export default {
   name: "SignUp",
-  components: {
-    BasicLayouts,
-  },
+  components: {},
   data: function () {
     return {
       user: {
@@ -59,11 +49,10 @@ export default {
         password: "",
         name: "",
         email: "",
-        balance: 0,
+        edad: "",
       },
     };
   },
-
   methods: {
     processSignUp: async function () {
       await this.$apollo
@@ -86,7 +75,6 @@ export default {
             token_access: result.data.signUpUser.access,
             token_refresh: result.data.signUpUser.refresh,
           };
-
           this.$emit("completedSignUp", dataLogIn);
         })
         .catch((error) => {
@@ -96,14 +84,13 @@ export default {
   },
 };
 </script>
-
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Readex+Pro:wght@700&display=swap");
 body {
   background-color: black;
   background-image: url(../assets/register3.jpg);
   background-size: 100%;
-  height: 645px;
+  height: 565px;
   max-width: 1400px;
 }
 
@@ -127,8 +114,8 @@ body {
 .footer {
   text-align: right;
   font-weight: lighter;
-  margin-top: 62px;
-  margin-bottom: 60px;
   color: white;
+  padding-top: 3%;
+  padding-right: 3%;
 }
 </style>

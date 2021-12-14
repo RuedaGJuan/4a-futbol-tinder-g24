@@ -1,9 +1,60 @@
 <template>
+  <div id="app" class="app">
+    <div class="ui secondary menu">
+      <div class="ui container">
+        <div class="left menu">
+          <router-link class="item" to="/">
+            <img
+              class="ui small image"
+              src="./assets/FUT_logo.png"
+              alt="Ecommerce"
+            />
+          </router-link>
+          <router-link class="item" to="/">
+            <h1>FUTMATCH</h1>
+          </router-link>
+        </div>
+        <div class="right menu">
+          <router-link
+            class="item"
+            to="/"
+            v-if="!is_auth"
+            v-on:click="loadHome"
+          >
+            HOME
+          </router-link>
+          <router-link
+            class="item"
+            to="/login"
+            v-if="!is_auth"
+            v-on:click="loadLogIn"
+          >
+            LOGIN
+          </router-link>
+          <router-link
+            class="item"
+            to="/user/perfil"
+            v-if="is_auth"
+            v-on:click="logOut"
+            >MI PERFIL</router-link
+          >
+          <router-link
+            class="item"
+            to="/home"
+            v-if="is_auth"
+            v-on:click="logOut"
+            >CERRAR SESIÓN</router-link
+          >
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="main-component">
     <router-view
       v-on:completedLogIn="completedLogIn"
       v-on:completedSignUp="completedSignUp"
       v-on:logOut="logOut"
+      v-on:loadHome="loadHome"
     >
     </router-view>
   </div>
@@ -48,14 +99,49 @@ export default {
     },
 
     loadHome: function () {
-      this.$router.push({ name: "home" });
+      this.$router.push({ name: "Home" });
+    },
+
+    loadPerfil: function () {
+      this.$router.push({ name: "Perfil" });
     },
 
     logOut: function () {
       localStorage.clear();
       alert("Sesión Cerrada");
-      this.loadLogIn();
+      this.loadHome();
     },
   },
 };
 </script>
+<style lang="scss" scoped>
+.app {
+  background-color: black;
+}
+.ui.menu.secondary {
+  background-color: #000508;
+
+  .item {
+    color: #ffffff;
+    &:hover {
+      color: #21ba45;
+    }
+  }
+  .menu.left {
+    width: 40%;
+    .ui.image {
+      width: 40px;
+    }
+  }
+  .menu.right {
+    width: 40%;
+    justify-content: flex-end;
+    .logout,
+    .cart {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+</style>
