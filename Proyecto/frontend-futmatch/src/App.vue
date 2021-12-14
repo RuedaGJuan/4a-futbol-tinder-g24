@@ -91,10 +91,24 @@ export default {
 <style lang="scss" scoped>
   body {
     margin: 0 0 0 0;
+    min-height: 100%;
+    display: flexbox;
+    align-items: flex-start;
+    
   }
 
+  
+
+
   .ui.menu.secondary {
-    background-color: #0005088e;
+    background-color: rgba(14, 13, 13, 1);
+    margin: 0 0 0 0;
+    padding: 0%;
+    height: 30px;
+    position: relative;
+    top: 40px;
+    z-index: 100;
+
   }
 
   .item {
@@ -124,15 +138,19 @@ export default {
     height: 75vh;
     margin: 0%;
     padding: 0%;
-
+    margin: 0 0 0 0;
     background: #fdfefe;
   }
 
   .footer {
     text-align: right;
     font-weight: lighter;
-    margin-top: 62px;
-    margin-bottom: 60px;
+    background-color: rgba(151, 34, 34, 0);
     color: white;
+    width: 100%;
+    height: 20px;
+    padding-right: 15px;
+    position: absolute;
+    bottom: -20%;
   }
 </style>

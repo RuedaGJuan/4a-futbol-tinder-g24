@@ -81,35 +81,31 @@ export default {
 html {
   background-color: black;
   background-image: url(../assets/home2.jpg);
-  margin-bottom: 2rem;
-  position: relative;
   background-size: 100%;
-  height: 645px;
-  max-width: 1400px;
+  min-width: 100%;
+  min-height: 140%;
+  position: relative;
+  
 }
 .login {
   margin-left: 260px;
-  margin-top: 120px;
+  margin-top: 0px;
   text-align: center;
   h2 {
     font-size: 2rem;
-    margin: 50px 0 30px 0;
+    margin: 0px 0 30px 0;
+    padding-top: 150px;
     color: white;
   }
   .ui.form {
     max-width: 300px !important;
     margin: 0 auto;
-    margin-bottom: 100px;
+    
     input.error {
       border-color: #faa;
       background-color: #ffeded;
     }
   }
 }
-.footer {
-  text-align: right;
-  font-weight: lighter;
-  color: white;
-  margin-top: 190px;
-}
+
 </style>

@@ -2,8 +2,10 @@
   <html>
     
       <div class="texto">
+        <div class=titulo>
         <h2>HAZ PARTE</h2>
         <h1>DEL JUEGO</h1>
+        
         <p>
           Únete a la comunidad más grande de jugadores aficionados!
         </p>
@@ -13,6 +15,7 @@
         <button class="ui grey button" @click="$router.push('/user/signup')">
           CREATE ACCOUNT
         </button>
+        </div>
       </div>
       
     
@@ -36,24 +39,27 @@ export default {
 html {
   background-color: black;
   background-image: url(../assets/home2.jpg);
-  margin-bottom: 2rem;
-  position: relative;
   background-size: 100%;
-  height: 645px;
-  max-width: 1400px;
+  min-width: 100%;
+  min-height: 140%;
+  position: relative;
 }
 h2 {
   font-size: 5rem;
-  align-text: right;
+  align-items: right;
+  
 }
 h1 {
   font-size: 7rem;
-  align-text: right;
+  align-items: right;
+}
+.titulo{
+  padding: 100px 0 0 60px;
 }
 .texto {
   margin-left: 460px;
   color: white;
-  margin-top: 60px;
+  margin-top: 0px;
 }
 .p {
   font-size: 45rem;
