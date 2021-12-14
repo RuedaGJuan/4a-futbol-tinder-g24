@@ -30,7 +30,7 @@
 import gql from "graphql-tag";
 
 export default {
-  name: "LogIn",
+  name: "Login",
   components: {
     
   },

@@ -1,29 +1,27 @@
 <template>
-
   <div id="app" class="app">
-
-    
     <div class="ui secondary menu">
       <div class="ui container">
+        <div class="left menu">
+          <router-link class="item" to="/user/home">
+            <img
+              class="ui small image"
+              src="./assets/FUT_logo.png"
+              alt="Ecommerce"
+            />
+          </router-link>
+        </div>
 
-          <div class="left menu">
-            <router-link class="item" to="/user/home">
-              <img class="ui small image" src="./assets/FUT_logo.png" alt="Ecommerce" />
-            </router-link>
-            
-          </div>
-
-          <div class="right menu">
-            <button v-if="!is_auth" v-on:click="loadHome"> HOME </button>
-            <button v-if="!is_auth" v-on:click="loadLogIn">LOGIN</button>
-            <button v-if="is_auth" v-on:click="logOut">LOGOUT</button>
-          </div>
-
+        <div class="right menu">
+          <button v-if="!is_auth" v-on:click="loadHome">HOME</button>
+          <button v-if="!is_auth" v-on:click="loadLogIn">LOGIN</button>
+          <button v-if="is_auth" v-on:click="logOut">LOGOUT</button>
+        </div>
       </div>
     </div>
-  
+
     <div class="main-component">
-      <router-view  
+      <router-view
         v-on:completedLogIn="completedLogIn"
         v-on:completedSignUp="completedSignUp"
         v-on:logOut="logOut"
@@ -33,12 +31,9 @@
     </div>
 
     <footer class="footer">
-        <p>Todos los derechos reservados Grupo FutMatch P24 C4. 2021</p>
-      </footer>
-
+      <p>Todos los derechos reservados Grupo FutMatch P24 C4. 2021</p>
+    </footer>
   </div>
-
-    
 </template>
 
 <script>
@@ -56,7 +51,7 @@ export default {
 
   methods: {
     loadLogIn: function () {
-      this.$router.push({ name: "logIn" });
+      this.$router.push({ name: "Login" });
     },
 
     loadSignUp: function () {
@@ -77,11 +72,11 @@ export default {
     },
 
     loadConvocatorias: function () {
-      this.$router.push({ name: "convocatorias" });
+      this.$router.push({ name: "Convocatorias" });
     },
 
     loadHome: function () {
-      this.$router.push({ name: "home" });
+      this.$router.push({ name: "Home" });
     },
 
     logOut: function () {
@@ -94,13 +89,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-body{
+  body {
     margin: 0 0 0 0;
   }
 
-.ui.menu.secondary {
-  background-color: #0005088e;
+  .ui.menu.secondary {
+    background-color: #0005088e;
   }
 
   .item {
@@ -124,22 +118,21 @@ body{
         cursor: pointer;
       }
     }
-  
   }
 
-.main-component{
+  .main-component {
     height: 75vh;
     margin: 0%;
     padding: 0%;
 
-    background: #FDFEFE ;
+    background: #fdfefe;
   }
 
   .footer {
-  text-align: right;
-  font-weight: lighter;
-  margin-top: 62px;
-  margin-bottom: 60px;
-  color: white;
-}
+    text-align: right;
+    font-weight: lighter;
+    margin-top: 62px;
+    margin-bottom: 60px;
+    color: white;
+  }
 </style>

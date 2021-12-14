@@ -1,17 +1,18 @@
 <template>
-  <body>
+  <div id="Convocatorias" class="convocatorias">
     
       <div class="ver-convocatorias" >
         <h2>CONVOCATORIAS VIGENTES</h2>
-        <button class="cargarconvocatorias" v-on:submit.prevent="convocatoriaTodas">CARGAR</button>
+        
         <div class="ui grey inverted segment">
           <ul class="ui inverted relaxed divided animated list">
-            <li class="item" v-for="convocatoria of convocatoriaTodas" :key="convocatoria.id">
+            <li class="item" >
               <div class="right floated content">
                 <div class="ui green button">Unirme</div>
               </div>
               <div class="content">
-                <ul class="header">
+                <ul class="header" v-for="convocatoria of convocatoriaTodas" :key="convocatoria.id"
+>
                   <li>{{convocatoria.fecha}}</li>
                   <li>{{convocatoria.hora}}</li>
                   <li>{{convocatoria.localidad}}</li>
@@ -24,7 +25,7 @@
 
       <div class="crear-convocatorias">
         <h2>CREAR CONVOCATORIA</h2>
-        <form class="ui form" v-om:submit.prevent="processConvocatoria">
+        <form class="ui form" v-on:submit.prevent="processConvocatoria">
           <div class="field">
             <input
               type="text"
@@ -46,18 +47,12 @@
               placeholder="Localidad"
             />
           </div>
-          <button
-            class="ui button fluid grey"
-            type="submit"
-            :class="{ loading }"
-          >
-            CREAR CONVOCATORIA
-          </button>
+          <button class="ui button fluid grey" type="submit">CREAR CONVOCATORIA </button>
         </form>
       </div>
      
     
-  </body>
+  </div>
 </template>
 
 <script>
@@ -164,12 +159,13 @@ apollo: {
 </script>
 
 <style lang="scss" scoped>
-body {
+.convocatorias {
   background-color: black;
   background-image: url(../assets/convocatorias1.jpg);
   background-size: 100%;
-  height: 759px;
-  max-width: 1700px;
+  height:100%;
+  max-width: 100%;
+  margin-top: 0;
 }
 .ver-convocatorias {
   margin-left: 40px;

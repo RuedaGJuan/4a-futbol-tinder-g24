@@ -3,31 +3,31 @@ import { createRouter, createWebHistory } from "vue-router";
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
 
 import Home from "./components/Home.vue";
-import LogIn from "./components/Login.vue";
+import Login from "./components/Login.vue";
 import SignUp from "./components/SignUp.vue";
 import Convocatorias from "./components/Convocatorias.vue";
 
 const routes = [{
-    path: '/user/logIn',
-    name: "logIn",
-    component: LogIn,
+    path: '/user/Login',
+    name: "Login",
+    component: Login,
     meta: { requiresAuth: false }
   },
   {
-    path: '/user/signUp',
+    path: '/user/SignUp',
     name: "SignUp",
     component: SignUp,
     meta: { requiresAuth: false }
   },
   {
-    path: '/user/home',
-    name: "home",
+    path: '/user/Home',
+    name: "Home",
     component: Home,
     meta: { requiresAuth: false }
   },
   {
-    path: '/user/convocatorias',
-    name: "convocatorias",
+    path: '/user/Convocatorias',
+    name: "Convocatorias",
     component: Convocatorias,
     meta: { requiresAuth: true }
   }

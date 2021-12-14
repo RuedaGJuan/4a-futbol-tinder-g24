@@ -7,7 +7,7 @@ import { setContext } from "apollo-link-context";
 import "semantic-ui-css/semantic.min.css";
 
 const httpLink = createHttpLink({
-  uri: 'https://futmatch-apigateway.herokuapp.com/',
+  uri: 'https://futmatch-apigateway.herokuapp.com',
 })
 
 const authLink = setContext((_, { headers }) => {
