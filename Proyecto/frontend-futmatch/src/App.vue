@@ -10,14 +10,14 @@
               alt="Ecommerce"
             />
           </router-link>
-          <router-link class="item" to="/">
+          <router-link class="item" to="/home">
             <h1>FUTMATCH</h1>
           </router-link>
         </div>
         <div class="right menu">
           <router-link
             class="item"
-            to="/"
+            to="/home"
             v-if="!is_auth"
             v-on:click="loadHome"
           >
@@ -40,7 +40,7 @@
           >
           <router-link
             class="item"
-            to="/user/perfil"
+            to="/user/convocatorias"
             v-if="is_auth"
             v-on:click="loadConvocatorias"
             >CONVOCATORIAS</router-link
@@ -62,6 +62,7 @@
       v-on:completedSignUp="completedSignUp"
       v-on:logOut="logOut"
       v-on:loadHome="loadHome"
+      v-on:loadPerfil="loadPerfil"
     >
     </router-view>
   </div>
@@ -121,6 +122,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .app {
   background-color: black;

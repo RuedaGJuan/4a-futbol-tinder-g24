@@ -72,7 +72,7 @@
       <div class="ui inverted segment">
         <div
           class="ui inverted relaxed divided animated list"
-          v-for="convocatoria of convocatoriaByLocalidad"
+          v-for="convocatoria of convocatoriaTodas"
           :key="convocatoria.id"
         >
           <div class="item">
@@ -248,14 +248,17 @@ body {
 }
 .two.fields {
   display: flex;
+  margin-right: 20px
 }
 .ui.calendar {
   margin-left: 0.5rem;
+  ;
 }
 .ver-convocatorias {
-  margin-left: 700px;
+  margin-left: 650px;
   margin-top: -240px;
   max-width: 410px;
+  margin-right: 20px;
   p {
     color: white;
   }
@@ -288,8 +291,9 @@ body {
 .footer {
   text-align: left;
   font-weight: lighter;
-  margin-top: -20px;
+  margin-top: 80px;
   color: white;
-  position: static;
+  position: absolute;
+  z-index: 3;
 }
 </style>

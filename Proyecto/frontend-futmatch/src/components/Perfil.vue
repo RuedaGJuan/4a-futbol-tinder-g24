@@ -110,7 +110,7 @@ body {
 }
 
 .texto {
-  margin-left: 810px;
+  margin-left: 790px;
   color: white;
   padding-top: 1.6%;
   h2 {
@@ -121,7 +121,7 @@ body {
     margin-left: 30px;
   }
   button {
-    margin-left: 320px;
+    margin-left: 250px;
   }
 }
 
