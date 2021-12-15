@@ -8,9 +8,7 @@
         </div>
         <div class="field">
           <input
-            type="password"
-            v-model="user.password"
-            placeholder="Contraseña"
+            type="password" v-model="user.password" placeholder="Contraseña"
           />
         </div>
         <div class="field">
@@ -18,9 +16,7 @@
         </div>
         <div class="field">
           <input
-            type="email"
-            v-model="user.email"
-            placeholder="Correo electrónico"
+            type="email"  v-model="user.email" placeholder="Correo electrónico"
           />
         </div>
         <div class="field">

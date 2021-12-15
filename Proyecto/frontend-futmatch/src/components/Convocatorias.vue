@@ -24,7 +24,7 @@
             placeholder="Localidad"
           />
         </div>
-        <button class="ui button fluid grey" type="submit" :class="{ loading }">
+        <button class="ui button fluid grey" type="submit" >
           CREAR CONVOCATORIA
         </button>
       </form>
@@ -197,7 +197,7 @@ body {
   margin-left: 0.5rem;
 }
 .ver-convocatorias {
-  margin-left: 700px;
+  margin-left: 620px;
   margin-top: -240px;
   max-width: 410px;
   p {

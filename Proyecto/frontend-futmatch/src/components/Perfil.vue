@@ -15,8 +15,16 @@
       </h2>
 
       <h2>
-        Correo electrónico:
-        <span>{{ userDetailById.email }}</span>
+        Correo electrónico: 
+        <span> {{ userDetailById.email }}</span>
+      </h2>
+      <h2>
+        Nombre: 
+        <span> {{  jugadorByNombre.nombre }}</span>
+      </h2>
+      <h2>
+        Edad:
+        <span>{{ jugadorByNombre.edad }}</span>
       </h2>
     </div>
   </div>
@@ -36,6 +44,11 @@ export default {
         username: "",
         name: "",
         email: "",
+      },
+      jugadorByNombre: {
+        nombre: "",
+        edad: "",
+        
       },
     };
   },
@@ -57,7 +70,29 @@ export default {
         };
       },
     },
+
+    jugadorByNombre: {
+      query: gql`
+        query ($nombre: String!) {
+          jugadorByNombre(nombre: $nombre) {
+            nombre
+            edad
+          }
+        }
+      `,
+      variables() {
+        return {
+          nombre: this.userDetailById.name,
+        };
+      },
+    },
   },
+
+  created: function () {
+    this.$apollo.queries.userDetailById.refetch();
+    this.$apollo.queries.jugadorByNombre.refetch();
+  }
+
 };
 </script>
 
@@ -67,7 +102,10 @@ export default {
   padding: 0%;
   width: 100%;
   height: 100%;
-
+  background-image: url(../assets/home4.jpg);
+  background-size: 100%;
+  height: 563px;
+  max-width: 1400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,32 +113,32 @@ export default {
 }
 
 .information h1 {
-  font-size: 60px;
-  color: #283747;
+  font-size: 40px;
+  color: white;
 }
 
 .information h2 {
-  font-size: 40px;
-  color: #283747;
+  font-size: 30px;
+  color: white;
 }
 
 .information span {
-  color: crimson;
+  color: white;
   font-weight: bold;
 }
 
 .details h3 {
-  font-size: 35px;
-  color: #283747;
+  font-size: 20px;
+  color: white;
   text-align: center;
 }
 
 .details h2 {
-  font-size: 35px;
-  color: #283747;
+  font-size: 20px;
+  color: white;
 }
 .details {
-  border: 3px solid rgba(0, 0, 0, 0.3);
+  border: 3px solid rgba(111, 219, 33, 0.3);
   border-radius: 20px;
   padding: 30px 80px;
   margin: 30px 0 0 0;

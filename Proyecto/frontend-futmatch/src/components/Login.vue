@@ -9,17 +9,10 @@
 
         <div class="field">
           <input
-            type="password"
-            v-model="user.password"
-            placeholder="Contraseña"
-          />
+            type="password"  v-model="user.password" placeholder="Contraseña" />
         </div>
 
-        <button
-          class="ui button fluid green"
-          type="submit"
-          :class="{ loading }"
-        >
+        <button  class="ui button fluid green"  type="submit"  >
           ENTRAR
         </button>
       </form>
