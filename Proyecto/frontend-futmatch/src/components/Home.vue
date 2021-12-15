@@ -45,7 +45,6 @@ h1 {
   align-text: right;
 }
 .texto {
-  margin-left: 460px;
   color: white;
   margin-left: 600px;
 }

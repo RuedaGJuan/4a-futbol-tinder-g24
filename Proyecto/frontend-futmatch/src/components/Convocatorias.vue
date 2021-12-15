@@ -24,7 +24,7 @@
             placeholder="Localidad"
           />
         </div>
-        <button class="ui button fluid grey" type="submit" >
+        <button class="ui button fluid grey" type="submit">
           CREAR CONVOCATORIA
         </button>
       </form>
@@ -36,21 +36,35 @@
 
       <div class="two fields">
         <div class="field">
-          <select class="ui tiny selection dropdown" id="localidad" name="localidad" v-model="filterConvocatoria.localidad" @change="convocatoriaByLocalidad"> 
-              <option value="Todas">Todas</option>
-              <option value="Suba">Suba</option>
-              <option value="Kennedy">Kennedy</option>
-              <option value="Chapinero">Chapinero</option>
-              <option value="Ciudad Bolivar">Ciudad Bolivar</option>
-              <option value="San Cristobal">San Cristobal</option>
-              <option value="Puente Aranda">Puente Aranda</option>
-            </select>
+          <select
+            class="ui tiny selection dropdown"
+            id="localidad"
+            name="localidad"
+            v-model="filterConvocatoria.localidad"
+            @change="convocatoriaByLocalidad"
+          >
+            <option value="Todas">Todas</option>
+            <option value="Suba">Suba</option>
+            <option value="UQ">Usaquén</option>
+            <option value="Kennedy">Kennedy</option>
+            <option value="Chapinero">Chapinero</option>
+            <option value="Ciudad Bolivar">Ciudad Bolivar</option>
+            <option value="San Cristobal">San Cristobal</option>
+            <option value="Puente Aranda">Puente Aranda</option>
+          </select>
         </div>
         <div class="field">
           <div class="ui calendar" id="example1">
             <div class="ui input left icon">
               <i class="calendar icon"></i>
-              <input type="text" placeholder="2017-06-01" id="fecha" name="fecha" v-model="filterConvocatoria.fecha" @change="convocatoriaByFecha" />
+              <input
+                type="text"
+                placeholder="2017-06-01"
+                id="fecha"
+                name="fecha"
+                v-model="filterConvocatoria.fecha"
+                @change="convocatoriaByFecha"
+              />
             </div>
           </div>
         </div>
@@ -95,8 +109,8 @@ export default {
       },
       filterConvocatoria: {
         fecha: "",
-        localidad:"",
-      }
+        localidad: "",
+      },
     };
   },
   methods: {
@@ -172,7 +186,7 @@ export default {
       },
     },
 
-    convocatoriaByLocalidad:{
+    convocatoriaByLocalidad: {
       query: gql`
         query ($localidad: String!) {
           convocatoriaByLocalidad(localidad: $localidad) {
@@ -190,7 +204,7 @@ export default {
       },
     },
 
-    convocatoriaByFecha:{
+    convocatoriaByFecha: {
       query: gql`
         query ($fecha: String!) {
           convocatoriaByFecha(fecha: $fecha) {
@@ -213,9 +227,7 @@ export default {
     this.$apollo.queries.convocatoriaTodas.refetch();
     this.$apollo.queries.convocatoriaByLocalidad.refetch();
     this.$apollo.queries.convocatoriaByFecha.refetch();
-
   },
-  
 };
 </script>
 
@@ -241,14 +253,13 @@ body {
   margin-left: 0.5rem;
 }
 .ver-convocatorias {
-  margin-left: 620px;
+  margin-left: 700px;
   margin-top: -240px;
   max-width: 410px;
   p {
     color: white;
   }
   h2 {
-    // margin: 90px 0 30px 0;
     color: white;
     text-align: center;
   }
@@ -261,7 +272,6 @@ body {
   margin-top: 34px;
   max-width: 300px;
   h2 {
-    // margin: 90px 0 30px 0;
     color: white;
     text-align: center;
   }
@@ -278,7 +288,7 @@ body {
 .footer {
   text-align: left;
   font-weight: lighter;
-  margin-top: 100px;
+  margin-top: -20px;
   color: white;
   position: static;
 }

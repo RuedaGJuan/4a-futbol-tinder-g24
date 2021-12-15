@@ -1,33 +1,39 @@
 <template>
-  <div class="information">
-    <h1>
-      ¡Bienvenido
-      <span>{{ userDetailById.name }}</span
-      >!
-    </h1>
-
-    <div class="details">
-      <h3>Su información es la siguiente</h3>
-
+  <body>
+    <div class="texto">
       <h2>
-        Nombre de usuario:
-        <span>{{ userDetailById.username }}</span>
+        ¡Hola
+        <span>{{ userDetailById.name }}</span
+        >!
       </h2>
 
-      <h2>
-        Correo electrónico: 
-        <span> {{ userDetailById.email }}</span>
-      </h2>
-      <h2>
-        Nombre: 
-        <span> {{  jugadorByNombre.nombre }}</span>
-      </h2>
-      <h2>
-        Edad:
-        <span>{{ jugadorByNombre.edad }}</span>
-      </h2>
+      <div>
+        <h5>Los datos de tu perfil son los siguientes:</h5>
+        <h5>
+          Nombre:
+          <span> {{ jugadorByNombre.nombre }}</span>
+        </h5>
+        <h5>
+          Usuario:
+          <span>{{ userDetailById.username }}</span>
+        </h5>
+        <h5>
+          Correo electrónico:
+          <span> {{ userDetailById.email }}</span>
+        </h5>
+
+        <h5>
+          Edad:
+          <span>{{ jugadorByNombre.edad }}</span>
+        </h5>
+        <button class="ui grey button">MODIFICAR</button>
+      </div>
     </div>
-  </div>
+
+    <footer class="footer">
+      <p>Todos los derechos reservados Grupo FutMatch P24 C4. 2021</p>
+    </footer>
+  </body>
 </template>
 
 <script>
@@ -48,7 +54,6 @@ export default {
       jugadorByNombre: {
         nombre: "",
         edad: "",
-        
       },
     };
   },
@@ -91,56 +96,40 @@ export default {
   created: function () {
     this.$apollo.queries.userDetailById.refetch();
     this.$apollo.queries.jugadorByNombre.refetch();
-  }
-
+  },
 };
 </script>
 
-<style>
-.information {
-  margin: 0;
-  padding: 0%;
-  width: 100%;
-  height: 100%;
-  background-image: url(../assets/home4.jpg);
+<style lang="scss" scoped>
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Readex+Pro:wght@700&display=swap");
+body {
+  background-color: rgba(38, 42, 47, 0.87);
+  background-image: url(../assets/perfil2.jpg);
   background-size: 100%;
-  height: 563px;
-  max-width: 1400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 580px;
 }
 
-.information h1 {
-  font-size: 40px;
+.texto {
+  margin-left: 810px;
   color: white;
+  padding-top: 1.6%;
+  h2 {
+    font-size: 5rem;
+  }
+  h5 {
+    font-size: 1.2rem;
+    margin-left: 30px;
+  }
+  button {
+    margin-left: 320px;
+  }
 }
 
-.information h2 {
-  font-size: 30px;
+.footer {
+  text-align: right;
+  font-weight: lighter;
   color: white;
-}
-
-.information span {
-  color: white;
-  font-weight: bold;
-}
-
-.details h3 {
-  font-size: 20px;
-  color: white;
-  text-align: center;
-}
-
-.details h2 {
-  font-size: 20px;
-  color: white;
-}
-.details {
-  border: 3px solid rgba(111, 219, 33, 0.3);
-  border-radius: 20px;
-  padding: 30px 80px;
-  margin: 30px 0 0 0;
+  padding-top: 3.2%;
+  padding-right: 3%;
 }
 </style>

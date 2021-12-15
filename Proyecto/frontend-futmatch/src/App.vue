@@ -3,30 +3,54 @@
     <div class="ui secondary menu">
       <div class="ui container">
         <div class="left menu">
-          <router-link class="item" to="/home">
+          <router-link class="item" to="/">
             <img
               class="ui small image"
               src="./assets/FUT_logo.png"
               alt="Ecommerce"
             />
           </router-link>
-          <router-link class="item" to="/home">
+          <router-link class="item" to="/">
             <h1>FUTMATCH</h1>
           </router-link>
         </div>
         <div class="right menu">
-          <router-link class="item" to="/home"  v-if="!is_auth"  v-on:click="loadHome"  >
+          <router-link
+            class="item"
+            to="/"
+            v-if="!is_auth"
+            v-on:click="loadHome"
+          >
             HOME
           </router-link>
-          <router-link class="item" to="/convocatorias"  v-if="is_auth"  v-on:click="loadConvocatorias"  >
-            CONVOCATORIAS
-          </router-link>
-          <router-link  class="item"  to="/login" v-if="!is_auth"  v-on:click="loadLogIn"  >
+          <router-link
+            class="item"
+            to="/login"
+            v-if="!is_auth"
+            v-on:click="loadLogIn"
+          >
             LOGIN
           </router-link>
-          <router-link  class="item"  to="/user/perfil"  v-if="is_auth" v-on:click="loadPerfil"    >MI PERFIL</router-link
+          <router-link
+            class="item"
+            to="/user/perfil"
+            v-if="is_auth"
+            v-on:click="loadPerfil"
+            >MI PERFIL</router-link
           >
-          <router-link  class="item"   to="/home"   v-if="is_auth"  v-on:click="logOut"  >CERRAR SESIÓN</router-link
+          <router-link
+            class="item"
+            to="/user/perfil"
+            v-if="is_auth"
+            v-on:click="loadConvocatorias"
+            >CONVOCATORIAS</router-link
+          >
+          <router-link
+            class="item"
+            to="/home"
+            v-if="is_auth"
+            v-on:click="logOut"
+            >CERRAR SESIÓN</router-link
           >
         </div>
       </div>
@@ -36,10 +60,8 @@
     <router-view
       v-on:completedLogIn="completedLogIn"
       v-on:completedSignUp="completedSignUp"
-      v-on:completedConvocatorias="completedConvocatorias"
       v-on:logOut="logOut"
       v-on:loadHome="loadHome"
-      v-on:loadPerfil="loadPerfil"
     >
     </router-view>
   </div>
@@ -71,7 +93,7 @@ export default {
       localStorage.setItem("token_access", data.token_access);
       localStorage.setItem("token_refresh", data.token_refresh);
       alert("Autenticación Exitosa");
-      this.loadConvocatorias();
+      this.loadPerfil();
     },
 
     completedSignUp: function (data) {
