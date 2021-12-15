@@ -31,27 +31,26 @@
     </div>
 
     <div class="ver-convocatorias">
-      <h2>CONVOCATORIA VIGENTES</h2>
+      <h2>CONVOCATORIAS VIGENTES</h2>
       <p>Filtros de búsqueda:</p>
 
       <div class="two fields">
         <div class="field">
-          <select class="ui tiny selection dropdown">
-            <option value="LC">Localidad</option>
-            <option value="SB">Suba</option>
-            <option value="UQ">Usaquén</option>
-            <option value="KN">Kennedy</option>
-            <option value="CH">Chapinero</option>
-            <option value="CS">Ciudad Bolivar</option>
-            <option value="SC">San Cristobal</option>
-            <option value="PA">Puente Aranda</option>
-          </select>
+          <select class="ui tiny selection dropdown" id="localidad" name="localidad" v-model="filterConvocatoria.localidad" @change="convocatoriaByLocalidad"> 
+              <option value="Todas">Todas</option>
+              <option value="Suba">Suba</option>
+              <option value="Kennedy">Kennedy</option>
+              <option value="Chapinero">Chapinero</option>
+              <option value="Ciudad Bolivar">Ciudad Bolivar</option>
+              <option value="San Cristobal">San Cristobal</option>
+              <option value="Puente Aranda">Puente Aranda</option>
+            </select>
         </div>
         <div class="field">
           <div class="ui calendar" id="example1">
             <div class="ui input left icon">
               <i class="calendar icon"></i>
-              <input type="text" placeholder="Date" value="2017-06-01" />
+              <input type="text" placeholder="2017-06-01" id="fecha" name="fecha" v-model="filterConvocatoria.fecha" @change="convocatoriaByFecha" />
             </div>
           </div>
         </div>
@@ -59,7 +58,7 @@
       <div class="ui inverted segment">
         <div
           class="ui inverted relaxed divided animated list"
-          v-for="convocatoria of convocatoriaTodas"
+          v-for="convocatoria of convocatoriaByLocalidad"
           :key="convocatoria.id"
         >
           <div class="item">
@@ -94,6 +93,10 @@ export default {
         hora: "",
         localidad: "",
       },
+      filterConvocatoria: {
+        fecha: "",
+        localidad:"",
+      }
     };
   },
   methods: {
@@ -168,10 +171,51 @@ export default {
         return {};
       },
     },
+
+    convocatoriaByLocalidad:{
+      query: gql`
+        query ($localidad: String!) {
+          convocatoriaByLocalidad(localidad: $localidad) {
+            id
+            fecha
+            hora
+            localidad
+          }
+        }
+      `,
+      variables() {
+        return {
+          localidad: this.filterConvocatoria.localidad,
+        };
+      },
+    },
+
+    convocatoriaByFecha:{
+      query: gql`
+        query ($fecha: String!) {
+          convocatoriaByFecha(fecha: $fecha) {
+            id
+            fecha
+            hora
+            localidad
+          }
+        }
+      `,
+      variables() {
+        return {
+          fecha: this.filterConvocatoria.fecha,
+        };
+      },
+    },
   },
+
   created: function () {
     this.$apollo.queries.convocatoriaTodas.refetch();
+    this.$apollo.queries.convocatoriaByLocalidad.refetch();
+    this.$apollo.queries.convocatoriaByFecha.refetch();
+
   },
+  
 };
 </script>
 
@@ -234,7 +278,8 @@ body {
 .footer {
   text-align: left;
   font-weight: lighter;
-  margin-top: -20px;
+  margin-top: 100px;
   color: white;
+  position: static;
 }
 </style>
